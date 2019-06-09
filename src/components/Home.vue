@@ -21,6 +21,7 @@
         <v-btn class="login-button"  >
           Login
         </v-btn>
+        <Signup />
       </v-flex>
     </v-layout>
   </v-container>
@@ -28,7 +29,7 @@
 
 <script>
   export default {
-  
+
   };
 </script>
 
