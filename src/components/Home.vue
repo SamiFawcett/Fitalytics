@@ -1,63 +1,47 @@
 <template>
   <v-container>
-    <v-layout
-      text-xs-center
-      wrap
-    >
-      <v-flex xs12>
-      </v-flex>
-
-      <v-flex mb-4>
-        <h1 class="font-weight-thin home-title">
-          Fitalytics
-        </h1>
-        <h3 class="title-sub font-weight-light">MEET YOUR GOALS</h3>
-      </v-flex>
-
-      <v-flex >
-        <v-btn class="signup-button"  >
-          Sign up
-        </v-btn>
-        <v-btn class="login-button"  >
-          Login
-        </v-btn>
-        <Signup />
+    <v-layout row>
+      <v-icon left>dashboard</v-icon>
+      <v-flex xs1>
+        <h1 class="roboto header font-weight-light">dashboard</h1>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
-  export default {
-
-  };
+export default {
+  data() {
+    return {
+      current_index: [],
+      completed_routines: [
+        { title: "first-routine" },
+        { title: "second-routine" },
+        { title: "third-routine" },
+        { title: "fourth-routine" }
+      ]
+    };
+  },
+  methods: {
+    update_routine_index(index) {
+      if (!this.current_index.includes(index)) {
+        this.current_index.push(index);
+      } else {
+        let idx = this.current_index.indexOf(index);
+        this.current_index.splice(idx, 1);
+      }
+    }
+  }
+};
 </script>
 
 <style scoped>
-  @import url('https://fonts.googleapis.com/css?family=Roboto:100,400&display=swap');
-  *{
-    font-family: 'Roboto', sans-serif;
-  }
-  .home-title{
-    position: absolute;
-    top: 35%;
-    left: 30%;
-    font-size: 160px;
-  }
-  .title-sub{
-    position: absolute;
-    top: 54%;
-    left: 30.7%;
-    font-size: 30px;
-  }
-  .signup-button{
-    position:absolute;
-    top: 60%;
-    left: 50%;
-  }
-  .login-button{
-    position:absolute;
-    top: 60%;
-    left: 55%;
-  }
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,400&display=swap");
+.roboto {
+  font-family: "Roboto", sans-serif;
+}
+
+.fit-title {
+  font-size: 144px;
+}
 </style>

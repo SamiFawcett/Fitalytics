@@ -3,74 +3,99 @@
     <v-navigation-drawer fixed v-model="sideNav">
       <v-list>
         <v-list-tile
-        v-for="item in menuItems"
-        :key="item.title"
-        router
-        :to="item.link"
+          v-for="item in menuItems"
+          :key="item.title"
+          router
+          :to="item.link"
+          class="text-lowercase"
         >
-              <v-list-tile-action>
-                  <v-icon>{{ item.icon }}</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>
-                {{ item.title }}
-              </v-list-tile-content>
+          <v-list-tile-action>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content class="text-lowercase">
+            {{ item.title }}
+          </v-list-tile-content>
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar>
+    <v-toolbar dark class="amber darken-2">
       <v-toolbar-side-icon
-      @click.native.stop="sideNav = !sideNav"
-      class="hidden-sm-and-up">
+        @click.native.stop="sideNav = !sideNav"
+        class="hidden-sm-and-up"
+      >
       </v-toolbar-side-icon>
       <v-toolbar-title>
-        <router-link to='/' tag='span' style="cursor: pointer">Fitalytics</router-link>
+        <v-container>
+          <v-layout mt-3 row>
+            <v-flex>
+              <router-link
+                class="roboto font-weight-light display-1"
+                to="/"
+                tag="span"
+                style="cursor: pointer"
+                ><p class="text-xs-center">FITALYTICS</p></router-link
+              >
+            </v-flex>
+            <v-flex>
+              <p
+                class="roboto text--lighten-1 amber--text font-weight-thin display-1"
+              >
+                ALPHA
+              </p>
+            </v-flex>
+          </v-layout>
+        </v-container>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
         <v-btn
-        flat
-        v-for="item in menuItems"
-        :key="item.title"
-        router
-        :to="item.link"
+          class="roboto font-weight-medium text-lowercase headline "
+          flat
+          v-for="item in menuItems"
+          :key="item.title"
+          router
+          :to="item.link"
         >
-          <v-icon left>{{item.icon}}</v-icon>
-          {{item.title}}
+          <v-icon left>{{ item.icon }}</v-icon>
+          {{ item.title }}
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
-
     <main>
-      <router-view></router-view>
+      <v-content>
+        <router-view></router-view>
+      </v-content>
     </main>
   </v-app>
 </template>
 
 <script>
-import Home from './components/Home'
+import Home from "./components/Home";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Home
   },
-  data () {
+  data() {
     return {
       sideNav: false,
       menuItems: [
-        { icon: 'directions_run', title: 'View', link: '/routines' },
-        { icon: 'add', title: 'Create', link: '/routines/create' },
-        { icon: 'bar_chart', title: 'Progress', link: '/progress' },
-        { icon: 'face', title: 'Sign up', link: '/signup' },
-        { icon: 'lock_open', title: 'Sign in', link: '/signin' }
+        { icon: "directions_run", title: "view", link: "/routines" },
+        { icon: "add", title: "create", link: "/routines/create" },
+        { icon: "bar_chart", title: "progress", link: "/progress" }
       ]
-    }
+    };
   }
-}
+};
 </script>
 
 <style scoped>
-.sideNav{
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,400&display=swap");
+.roboto {
+  font-family: "Roboto", sans-serif;
+}
+.sideNav {
   margin-top: 20px;
   margin-left: 20px;
 }
