@@ -1,34 +1,10 @@
 <template>
-  <v-card >
+<v-app>
+  <v-navigation-drawer app class="hidden-xs-only deep-purple accent-4 elevation-10" width="450px">
     <v-list class="hidden-sm-and-down   ">
-      <div class="mt-4">
-        <v-list-tile>
-        <v-list-tile-content>
-          <v-container>
-            <v-layout row wrap>
-              <v-flex xs12>
-                <div>
-                  <v-menu offset-y>
-                    <template v-slot:activator="{ on }">
-                      <v-btn
-                        
-                        large
-                        class="mb-2 amber darken-3 white--text roboto text-lowercase headline font-weight-light"
-                        v-on="on"
-                      >
-                        completed routines
-                      </v-btn>
-                    </template>
-                  </v-menu>
-                </div>
-              </v-flex>
-            </v-layout>
-          </v-container>
-        </v-list-tile-content>
-      </v-list-tile>
-      </div>
       
-      <div class="mt-5">
+      
+      <div class="mt-4">
         <v-list-tile 
       
       text-lowercase
@@ -39,8 +15,8 @@
         <v-list-tile-content>
           <v-container>
             <v-layout row wrap>
-              <v-flex xs4 mx-4 mt-2>
-                <v-btn class= "amber darken-2 white--text headline roboto text-lowercase" @click="update_routine_index(index)" large depressed block>
+              <v-flex xs8 offset-xs2>
+                <v-btn class= "deep-purple--text headline roboto text-lowercase" @click="update_routine_index(index)" large depressed block>
                   {{cr.title}}
                   <v-icon>{{ current_index.includes(index) ? 'chevron_left' : 'chevron_right'}}</v-icon>
                   </v-btn>
@@ -51,8 +27,9 @@
       </v-list-tile>
       </div>
     </v-list>
-  </v-card>
-    
+  </v-navigation-drawer>
+  
+</v-app>
 </template>
 
 <script>

@@ -18,7 +18,7 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar dark class="amber darken-2">
+    <v-toolbar app dark class="deep-purple darken-3">
       <v-toolbar-side-icon
         @click.native.stop="sideNav = !sideNav"
         class="hidden-sm-and-up"
@@ -38,7 +38,7 @@
             </v-flex>
             <v-flex>
               <p
-                class="roboto text--lighten-1 amber--text font-weight-thin display-1"
+                class="roboto purple--text font-weight-thin display-1"
               >
                 ALPHA
               </p>
@@ -81,7 +81,7 @@ export default {
     return {
       sideNav: false,
       menuItems: [
-        { icon: "directions_run", title: "view", link: "/routines" },
+        { icon: "folder", title: "routines", link: "/routines" },
         { icon: "add", title: "create", link: "/routines/create" },
         { icon: "bar_chart", title: "progress", link: "/progress" }
       ]
